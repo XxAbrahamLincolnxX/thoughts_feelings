@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="A placeholder post to test the layout." />
+  <meta name="description" content="A placeholder post." />
   <title>My First Post • Minimal Blog</title>
-
   <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -14,69 +13,54 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <a class="brand-link" href="../index.html" aria-label="Home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-name">Minimal Blog</span>
-        </a>
-      </div>
+      <a class="brand-link" href="../index.html" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Minimal Blog</span>
+      </a>
 
       <nav class="site-nav" aria-label="Primary">
         <a href="../index.html#latest">Latest</a>
-        <a href="../index.html#topics">Topics</a>
-        <a href="../index.html#about">About</a>
+        <a href="../index.html#more">More</a>
       </nav>
 
       <div class="header-actions">
-        <button id="themeToggle" class="btn" type="button" aria-pressed="false">
-          Toggle theme
+        <button id="themeToggle" class="btn btn-ghost" type="button" aria-pressed="false">
+          Theme
         </button>
       </div>
     </div>
   </header>
 
   <main id="main" class="site-main">
-    <article class="post">
-      <div class="container narrow post-inner">
-        <p class="post-kicker">
-          <a class="muted-link" href="../index.html#latest">← Back</a>
-        </p>
+    <article class="container narrow" style="padding: 28px 0 42px;">
+      <p style="margin: 0 0 12px;">
+        <a class="muted-link" href="../index.html#latest">← Back</a>
+      </p>
 
-        <h1 class="post-title">My First Post</h1>
+      <h1 style="margin: 0 0 10px; line-height: 1.1;">My First Post</h1>
 
-        <div class="post-meta">
-          <span class="tag">Update</span>
-          <time datetime="2026-02-26">Feb 26, 2026</time>
-        </div>
+      <p style="margin: 0 0 18px; color: var(--muted);">
+        <time datetime="2026-02-26">Feb 26, 2026</time> • <span class="tag">Update</span>
+      </p>
 
-        <p class="post-lead">
-          This is a placeholder post to verify spacing, readability, and the theme toggle.
-        </p>
+      <p style="margin: 0 0 14px; color: var(--muted);">
+        This is a placeholder post to confirm typography, spacing, and theme behavior.
+      </p>
 
-        <hr class="post-rule" />
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 20px 0;" />
 
-        <h2>Simple structure</h2>
-        <p>
-          Each post is a single HTML file in the <code>posts</code> folder. Duplicate the template, rename it, update the title and date, and link it on the homepage.
-        </p>
-
-        <blockquote>
-          “Make it calm. Make it clear.”
-        </blockquote>
-
-        <p>
-          Next, I’ll add another post and refine the topics and navigation.
-        </p>
-      </div>
+      <h2>Small structure</h2>
+      <p>
+        Duplicate your template, rename it, update title/date, and link it on the homepage.
+      </p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Minimal Blog</p>
+    <div class="container footer-inner minimal">
+      <p>© <span id="year"></span></p>
       <div class="footer-links">
         <a href="#">RSS</a>
-        <a href="#">Privacy</a>
       </div>
     </div>
   </footer>

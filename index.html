@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="A minimal blog-style website." />
   <title>My Minimal Blog</title>
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,22 +13,20 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <a class="brand-link" href="index.html" aria-label="Home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-name">Minimal Blog</span>
-        </a>
-      </div>
+      <a class="brand-link" href="index.html" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Minimal Blog</span>
+      </a>
 
+      <!-- Minimal nav: visible on desktop, collapses on mobile -->
       <nav class="site-nav" aria-label="Primary">
         <a href="#latest">Latest</a>
-        <a href="#topics">Topics</a>
-        <a href="#about">About</a>
+        <a href="#more">More</a>
       </nav>
 
       <div class="header-actions">
-        <button id="themeToggle" class="btn" type="button" aria-pressed="false">
-          Toggle theme
+        <button id="themeToggle" class="btn btn-ghost" type="button" aria-pressed="false">
+          Theme
         </button>
       </div>
     </div>
@@ -37,46 +34,25 @@
 
   <main id="main" class="site-main">
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 class="hero-title">Calm updates. Clean notes.</h1>
-          <p class="hero-subtitle">
-            A soothing, minimal blog layout with responsive modules and gentle visual feedback.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#latest">Read latest</a>
-            <a class="btn" href="#topics">Browse topics</a>
-          </div>
-        </div>
-
-        <aside class="hero-panel" aria-label="About this blog">
-          <h2 class="panel-title">Now</h2>
-          <p class="panel-text">
-            Short status, intention, or a single sentence about what you’re focusing on.
-          </p>
-          <ul class="panel-list">
-            <li>Minimal</li>
-            <li>Soft gradients</li>
-            <li>Readable typography</li>
-          </ul>
-        </aside>
+      <div class="container hero-inner minimal">
+        <h1 class="hero-title">Calm updates, clean notes.</h1>
+        <p class="hero-subtitle">Minimal blog layout with gentle gradients and quiet UI.</p>
       </div>
     </section>
 
     <section id="latest" class="section">
-      <div class="container section-head">
+      <div class="container section-head minimal">
         <h2 class="section-title">Latest</h2>
-        <p class="section-subtitle">Auto-adjusting grid.</p>
+        <p class="section-subtitle">1–2 lines per post. Simple.</p>
       </div>
 
       <div class="container">
-        <div class="post-grid">
-          <article class="card">
+        <div class="post-grid minimal">
+          <article class="card minimal">
             <a class="card-link" href="posts/first-post.html">
               <div class="card-meta">
-                <span class="tag">Update</span>
                 <time datetime="2026-02-26">Feb 26, 2026</time>
+                <span class="tag">Update</span>
               </div>
               <h3 class="card-title">My First Post</h3>
               <p class="card-excerpt">
@@ -88,37 +64,39 @@
       </div>
     </section>
 
-    <section id="topics" class="section">
-      <div class="container section-head">
-        <h2 class="section-title">Topics</h2>
-        <p class="section-subtitle">Simple tags for browsing later.</p>
-      </div>
-
-      <div class="container topic-grid">
-        <a class="chip" href="#">Plants</a>
-        <a class="chip" href="#">Aquarium</a>
-        <a class="chip" href="#">Care</a>
-        <a class="chip" href="#">Projects</a>
-        <a class="chip" href="#">Learning</a>
-      </div>
-    </section>
-
-    <section id="about" class="section">
+    <!-- Collapsible "More" area: minimal clutter by default -->
+    <section id="more" class="section">
       <div class="container narrow">
-        <h2 class="section-title">About</h2>
-        <p>
-          A minimal boilerplate: header, hero, responsive grid, and simple post pages.
-        </p>
+        <details class="fold">
+          <summary>Topics</summary>
+          <div class="fold-body">
+            <div class="topic-grid minimal">
+              <a class="chip minimal" href="#">Plants</a>
+              <a class="chip minimal" href="#">Aquarium</a>
+              <a class="chip minimal" href="#">Care</a>
+              <a class="chip minimal" href="#">Projects</a>
+              <a class="chip minimal" href="#">Learning</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary>About</summary>
+          <div class="fold-body">
+            <p class="muted">
+              A minimal boilerplate: one homepage + simple post pages in a <code>posts</code> folder.
+            </p>
+          </div>
+        </details>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Minimal Blog</p>
+    <div class="container footer-inner minimal">
+      <p>© <span id="year"></span></p>
       <div class="footer-links">
         <a href="#">RSS</a>
-        <a href="#">Privacy</a>
       </div>
     </div>
   </footer>
