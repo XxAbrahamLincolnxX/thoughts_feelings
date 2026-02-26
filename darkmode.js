@@ -1,20 +1,63 @@
 const toggleBtn = document.getElementById("themeToggle");
-const root = document.documentElement;
+const body = document.body;
 
-// Load saved theme or system preference
-const savedTheme = localStorage.getItem("theme");
+const STORAGE_KEY = "theme";
 
-if (savedTheme) {
-  root.classList.toggle("dark", savedTheme === "dark");
-} else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  root.classList.toggle("dark", prefersDark);
+/* ---------- Helpers ---------- */
+
+function getSystemPreference() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
-// Toggle function
-toggleBtn.addEventListener("click", () => {
-  root.classList.toggle("dark");
+function applyTheme(theme) {
+  const isLight = theme === "light";
 
-  const isDark = root.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  body.classList.toggle("light", isLight);
+
+  if (toggleBtn) {
+    toggleBtn.setAttribute("aria-pressed", isLight ? "true" : "false");
+  }
+}
+
+function saveTheme(theme) {
+  localStorage.setItem(STORAGE_KEY, theme);
+}
+
+function getSavedTheme() {
+  return localStorage.getItem(STORAGE_KEY);
+}
+
+/* ---------- Initialization ---------- */
+
+(function initTheme() {
+  const savedTheme = getSavedTheme();
+  const initialTheme = savedTheme || getSystemPreference();
+
+  applyTheme(initialTheme);
+})();
+
+/* ---------- Toggle Handler ---------- */
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    const isCurrentlyLight = body.classList.contains("light");
+    const newTheme = isCurrentlyLight ? "dark" : "light";
+
+    applyTheme(newTheme);
+    saveTheme(newTheme);
+  });
+}
+
+/* ---------- Listen for system changes ---------- */
+
+const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+mediaQuery.addEventListener("change", (e) => {
+  // Only update if user has NOT explicitly chosen a theme
+  if (!getSavedTheme()) {
+    const newTheme = e.matches ? "dark" : "light";
+    applyTheme(newTheme);
+  }
 });

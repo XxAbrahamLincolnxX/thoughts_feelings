@@ -1,18 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A minimal blog-style website." />
+  <title>My Minimal Blog</title>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<header>
-    <h1>Hello World</h1>
-    <button id="themeToggle">Toggle Theme</button>
-</header>   
+
 <body>
-    <h1>Hello World</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="#" aria-label="Home">
+          <span class="brand-mark">●</span>
+          <span class="brand-name">Minimal Blog</span>
+        </a>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#latest">Latest</a>
+        <a href="#topics">Topics</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="btn" type="button" aria-pressed="false">
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">Calm updates, clean notes, simple stories.</h1>
+          <p class="hero-subtitle">
+            A minimal blog layout with a responsive module grid and a centered reading column.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#latest">Read latest</a>
+            <a class="btn" href="#topics">Browse topics</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="About this blog">
+          <h2 class="panel-title">About</h2>
+          <p class="panel-text">
+            Use this space for a short mission statement, contact info, or a “now” section.
+          </p>
+          <ul class="panel-list">
+            <li>Minimal structure</li>
+            <li>Responsive modules</li>
+            <li>Accessible defaults</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="latest" class="section">
+      <div class="container section-head">
+        <h2 class="section-title">Latest Posts</h2>
+        <p class="section-subtitle">A responsive grid that auto-adjusts by screen size.</p>
+      </div>
+
+      <div class="container">
+        <div class="post-grid">
+          <!-- Post Card -->
+          <article class="card">
+            <a class="card-link" href="#">
+              <div class="card-meta">
+                <span class="tag">Update</span>
+                <time datetime="2026-02-26">Feb 26, 2026</time>
+              </div>
+              <h3 class="card-title">First Post Title</h3>
+              <p class="card-excerpt">
+                A short excerpt goes here. Keep it to 1–2 lines for a clean grid.
+              </p>
+            </a>
+          </article>
+
+          <article class="card">
+            <a class="card-link" href="#">
+              <div class="card-meta">
+                <span class="tag">Notes</span>
+                <time datetime="2026-02-20">Feb 20, 2026</time>
+              </div>
+              <h3 class="card-title">Second Post Title</h3>
+              <p class="card-excerpt">
+                Another excerpt. These cards will automatically wrap into columns.
+              </p>
+            </a>
+          </article>
+
+          <article class="card">
+            <a class="card-link" href="#">
+              <div class="card-meta">
+                <span class="tag">Guide</span>
+                <time datetime="2026-02-15">Feb 15, 2026</time>
+              </div>
+              <h3 class="card-title">Third Post Title</h3>
+              <p class="card-excerpt">
+                Add as many posts as you want—grid remains clean and responsive.
+              </p>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics" class="section">
+      <div class="container section-head">
+        <h2 class="section-title">Topics</h2>
+        <p class="section-subtitle">A second modular grid (chips).</p>
+      </div>
+
+      <div class="container topic-grid">
+        <a class="chip" href="#">Plants</a>
+        <a class="chip" href="#">Aquarium</a>
+        <a class="chip" href="#">Care</a>
+        <a class="chip" href="#">Projects</a>
+        <a class="chip" href="#">Learning</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">About this site</h2>
+        <p>
+          This is a minimal blog boilerplate: header + hero + responsive post grid + footer.
+          Replace the placeholder cards with real post pages later (or generate them).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Minimal Blog</p>
+      <div class="footer-links">
+        <a href="#">RSS</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="darkmode.js"></script>
 </body>
-<script src="script.js"></script>
-<script src="darkmode.js"></script>
 </html>
