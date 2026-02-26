@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="POST_DESCRIPTION_HERE" />
+  <title>POST_TITLE_HERE • Minimal Blog</title>
+
+  <!-- IMPORTANT: template is inside /posts so we go up one level -->
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="../index.html" aria-label="Home">
+          <span class="brand-mark">●</span>
+          <span class="brand-name">Minimal Blog</span>
+        </a>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#topics">Topics</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="btn" type="button" aria-pressed="false">
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <article class="post">
+      <div class="container narrow post-inner">
+        <p class="post-kicker">
+          <a class="muted-link" href="../index.html#latest">← Back to latest</a>
+        </p>
+
+        <h1 class="post-title">POST_TITLE_HERE</h1>
+
+        <div class="post-meta">
+          <span class="tag">POST_TAG_HERE</span>
+          <time datetime="YYYY-MM-DD">Month DD, YYYY</time>
+          <span class="dot">•</span>
+          <span class="muted">X min read</span>
+        </div>
+
+        <p class="post-lead">
+          POST_LEAD_PARAGRAPH_HERE
+        </p>
+
+        <hr class="post-rule" />
+
+        <!-- ====== POST CONTENT START ====== -->
+        <h2>Section heading</h2>
+        <p>
+          Write your post here. Keep paragraphs short and readable.
+        </p>
+
+        <h3>Smaller heading</h3>
+        <ul>
+          <li>Bullet point</li>
+          <li>Another bullet</li>
+          <li>One more</li>
+        </ul>
+
+        <blockquote>
+          “A short quote or highlight goes here.”
+        </blockquote>
+
+        <p>
+          Closing thought / next steps.
+        </p>
+        <!-- ====== POST CONTENT END ====== -->
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Minimal Blog</p>
+      <div class="footer-links">
+        <a href="#">RSS</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script src="../darkmode.js"></script>
+</body>
+</html>

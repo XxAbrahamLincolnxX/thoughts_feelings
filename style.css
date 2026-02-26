@@ -296,6 +296,8 @@ body.light .site-header {
 }
 .chip:hover { color: var(--text); }
 
+
+
 /* ====== Footer ====== */
 .site-footer {
   border-top: 1px solid var(--border);
@@ -332,3 +334,82 @@ body.light .site-header {
     grid-template-columns: 1fr;
   }
 }
+
+/* ====== Post Page Styles ====== */
+.post-inner {
+    padding: 28px 0 40px;
+  }
+  
+  .post-kicker {
+    margin: 0 0 12px;
+  }
+  
+  .muted-link {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .muted-link:hover { color: var(--text); }
+  
+  .post-title {
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+  }
+  
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  
+  .dot { opacity: 0.7; }
+  
+  .muted { color: var(--muted); }
+  
+  .post-lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  
+  .post-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+  
+  .post h2, .post h3 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .post p {
+    margin: 0 0 14px;
+  }
+  
+  .post ul {
+    margin: 0 0 16px;
+    padding-left: 18px;
+    color: var(--muted);
+  }
+  
+  .post code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.95em;
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    border-radius: 8px;
+  }
+  
+  .post blockquote {
+    margin: 18px 0;
+    padding: 14px 16px;
+    border-left: 3px solid var(--border);
+    background: var(--surface);
+    border-radius: 12px;
+    color: var(--muted);
+  }
