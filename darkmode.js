@@ -3,22 +3,21 @@ const body = document.body;
 
 const STORAGE_KEY = "theme";
 
-/* ---------- Helpers ---------- */
-
 function getSystemPreference() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function setButtonState(theme) {
+  if (!toggleBtn) return;
+
+  const isLight = theme === "light";
+  toggleBtn.setAttribute("aria-pressed", isLight ? "true" : "false");
+  toggleBtn.textContent = isLight ? "Dark mode" : "Light mode";
 }
 
 function applyTheme(theme) {
-  const isLight = theme === "light";
-
-  body.classList.toggle("light", isLight);
-
-  if (toggleBtn) {
-    toggleBtn.setAttribute("aria-pressed", isLight ? "true" : "false");
-  }
+  body.classList.toggle("light", theme === "light");
+  setButtonState(theme);
 }
 
 function saveTheme(theme) {
@@ -29,35 +28,26 @@ function getSavedTheme() {
   return localStorage.getItem(STORAGE_KEY);
 }
 
-/* ---------- Initialization ---------- */
-
+// Init
 (function initTheme() {
   const savedTheme = getSavedTheme();
   const initialTheme = savedTheme || getSystemPreference();
-
   applyTheme(initialTheme);
 })();
 
-/* ---------- Toggle Handler ---------- */
-
+// Toggle click
 if (toggleBtn) {
   toggleBtn.addEventListener("click", () => {
-    const isCurrentlyLight = body.classList.contains("light");
-    const newTheme = isCurrentlyLight ? "dark" : "light";
-
+    const newTheme = body.classList.contains("light") ? "dark" : "light";
     applyTheme(newTheme);
     saveTheme(newTheme);
   });
 }
 
-/* ---------- Listen for system changes ---------- */
-
+// System changes (only if user hasn't chosen)
 const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
 mediaQuery.addEventListener("change", (e) => {
-  // Only update if user has NOT explicitly chosen a theme
   if (!getSavedTheme()) {
-    const newTheme = e.matches ? "dark" : "light";
-    applyTheme(newTheme);
+    applyTheme(e.matches ? "dark" : "light");
   }
 });
